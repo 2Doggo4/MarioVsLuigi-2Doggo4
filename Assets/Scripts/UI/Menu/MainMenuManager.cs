@@ -17,7 +17,7 @@ using NSMB.Utils;
 
 public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks, IOnEventCallback, IConnectionCallbacks, IMatchmakingCallbacks {
 
-    public const int NICKNAME_MIN = 2, NICKNAME_MAX = 20;
+    public const int NICKNAME_MIN = 0, NICKNAME_MAX = 50;
 
     public static MainMenuManager Instance;
     public AudioSource sfx, music;
@@ -433,7 +433,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         //Photon stuff.
         if (!PhotonNetwork.IsConnected) {
             OpenTitleScreen();
-            //PhotonNetwork.NetworkingClient.AppId = "ce540834-2db9-40b5-a311-e58be39e726a";
+            PhotonNetwork.NetworkingClient.AppId = "ce540834-2db9-40b5-a311-e58be39e726a";
             PhotonNetwork.NetworkingClient.AppId = "40c2f241-79f7-4721-bdac-3c0366d00f58";
 
             //version separation
@@ -880,8 +880,8 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     public void JoinSpecificRoom() {
         string id = lobbyJoinField.text.ToUpper();
         int index = roomNameChars.IndexOf(id[0]);
-        if (id.Length < 8 || index < 0 || index >= allRegions.Count) {
-            OpenErrorBox("Invalid Room ID");
+        if (id.Length < 8 || index >= allRegions.Count) {
+            OpenErrorBox("dude enter a REAL code");
             return;
         }
         string region = allRegions[index];
