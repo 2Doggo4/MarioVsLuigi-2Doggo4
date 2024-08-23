@@ -1,11 +1,11 @@
-# Important Links! (From original repository)
+# Important Links!
 
-#### Source code: https://github.com/ipodtouch0218/NSMB-MarioVsLuigi/
+#### Source code: https://github.com/2Doggo4/MarioVsLuigi-2Doggo4/
 
-#### itch.io (Web version): https://ipodtouch0218.itch.io/nsmb-mariovsluigi
+#### itch.io (Web version): 
 
-#### Standalone Downloads: https://github.com/ipodtouch0218/NSMB-MarioVsLuigi/releases/latest
+#### Standalone Downloads: https://github.com/2Doggo4/MarioVsLuigi-2Doggo4/releases/latest
 
-#### Discord Server: https://discord.gg/dgKVaUKpj5 
+#### Discord Server: 
 
 # Right now, I don't have any social links. But I will update this when I have at least one public

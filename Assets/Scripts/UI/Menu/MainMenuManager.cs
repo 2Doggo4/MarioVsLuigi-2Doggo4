@@ -433,7 +433,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         //Photon stuff.
         if (!PhotonNetwork.IsConnected) {
             OpenTitleScreen();
-            PhotonNetwork.NetworkingClient.AppId = "ce540834-2db9-40b5-a311-e58be39e726a";
+            //PhotonNetwork.NetworkingClient.AppId = "ce540834-2db9-40b5-a311-e58be39e726a";
             PhotonNetwork.NetworkingClient.AppId = "40c2f241-79f7-4721-bdac-3c0366d00f58";
 
             //version separation
@@ -553,7 +553,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     IEnumerator UpdatePing() {
         // push our ping into our player properties every N seconds. 2 seems good.
         while (true) {
-            yield return new WaitForSecondsRealtime(2);
+            yield return new WaitForSecondsRealtime(0);
             if (PhotonNetwork.InRoom) {
                 PhotonNetwork.LocalPlayer.SetCustomProperties(new() {
                     { Enums.NetPlayerProperties.Ping, PhotonNetwork.GetPing() }
