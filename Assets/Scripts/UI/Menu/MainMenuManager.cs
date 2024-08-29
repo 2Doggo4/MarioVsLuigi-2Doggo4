@@ -1536,7 +1536,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
 
     public void OpenDownloadsPage()
     {
-        Application.OpenURL("https://github.com/ipodtouch0218/NSMB-MarioVsLuigi/releases/latest");
+        Application.OpenURL("https://github.com/2Doggo4/MarioVsLuigi-2Doggo4/releases/latest");
         OpenMainMenu();
     }
 
