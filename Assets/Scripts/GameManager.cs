@@ -881,7 +881,7 @@ public class GameManager : MonoBehaviour, IOnEventCallback, IInRoomCallbacks, IC
         return spawn;
     }
     [Range(1,10)]
-    public int playersToVisualize = 10;
+    public int playersToVisualize = 15;
     public void OnDrawGizmos() {
 
         if (!tilemap)

@@ -4546,7 +4546,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 161100439}
   m_OnClick:
     m_PersistentCalls:
@@ -4588,7 +4588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3333335, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.8207547, g: 0.7549395, b: 0.7549395, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13290,7 +13290,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.35
+  m_fontSize: 36.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -46553,8 +46553,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 47220571}
   m_HandleRect: {fileID: 47220570}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.74676704
+  m_Value: 0.99999976
+  m_Size: 0.74533916
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -46742,6 +46742,7 @@ GameObject:
   - component: {fileID: 1366857890}
   - component: {fileID: 1366857892}
   - component: {fileID: 1366857891}
+  - component: {fileID: 1366857893}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -46797,8 +46798,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291886848
-  m_fontColor: {r: 0, g: 1, b: 0.81638145, a: 1}
+    rgba: 4286611584
+  m_fontColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -46865,6 +46866,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366857889}
   m_CullTransparentMesh: 0
+--- !u!114 &1366857893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366857889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef0c12e3ed3b4e9d86bceb230fbbdba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 1366857891}
+  Button: {fileID: 161100438}
+  colorSpeed: 0.4
 --- !u!1 &1374346134
 GameObject:
   m_ObjectHideFlags: 0
@@ -90334,7 +90350,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1141870934}
   m_HandleRect: {fileID: 1141870933}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
