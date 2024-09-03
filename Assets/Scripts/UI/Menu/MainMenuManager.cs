@@ -18,7 +18,7 @@ using NSMB.Utils;
 public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks, IOnEventCallback, IConnectionCallbacks, IMatchmakingCallbacks
 {
 
-    public const int NICKNAME_MIN = 0, NICKNAME_MAX = 20;
+    public const int NICKNAME_MIN = 1, NICKNAME_MAX = 10;
 
     public static MainMenuManager Instance;
     public AudioSource sfx, music;
@@ -993,7 +993,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     {
         string id = lobbyJoinField.text.ToUpper();
         int index = roomNameChars.IndexOf(id[0]);
-        if (id.Length < 8 || index >= allRegions.Count)
+        if (id.Length < 8 || index >= allRegions.Count || id.Length > 1)
         {
             OpenErrorBox("dude enter a REAL code");
             return;
@@ -1125,18 +1125,18 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     {
         if (target.IsLocal)
         {
-            LocalChatMessage("While you can kick yourself, it's probably not what you meant to do.", Color.magenta);
+            LocalChatMessage("wait... you want to kick yourself???", Color.magenta);
             return;
         }
         PhotonNetwork.CloseConnection(target);
-        LocalChatMessage($"Successfully kicked {target.GetUniqueNickname()}", Color.magenta);
+        LocalChatMessage($"{target.GetUniqueNickname()} was kicked", Color.magenta);
     }
 
     public void Promote(Player target)
     {
         if (target.IsLocal)
         {
-            LocalChatMessage("You are already the host..?", Color.magenta);
+            LocalChatMessage("bruh you are the host", Color.magenta);
             return;
         }
         PhotonNetwork.SetMasterClient(target);
@@ -1147,19 +1147,19 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     {
         if (target.IsLocal)
         {
-            LocalChatMessage("While you can mute yourself, it's probably not what you meant to do.", Color.magenta);
+            LocalChatMessage("you don't have to tape up ur mouth", Color.magenta);
             return;
         }
         Utils.GetCustomProperty(Enums.NetRoomProperties.Mutes, out object[] mutes);
         List<object> mutesList = new(mutes);
         if (mutes.Contains(target.UserId))
         {
-            LocalChatMessage($"Successfully unmuted {target.GetUniqueNickname()}", Color.magenta);
+            LocalChatMessage($"{target.GetUniqueNickname()} was unmuted", Color.magenta);
             mutesList.Remove(target.UserId);
         }
         else
         {
-            LocalChatMessage($"Successfully muted {target.GetUniqueNickname()}", Color.magenta);
+            LocalChatMessage($"{target.GetUniqueNickname()} was muted", Color.magenta);
             mutesList.Add(target.UserId);
         }
         Hashtable table = new()
@@ -1199,7 +1199,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     {
         if (target.IsLocal)
         {
-            LocalChatMessage("While you can ban yourself, it's probably not what you meant to do.", Color.magenta);
+            LocalChatMessage("ay, u cant do dat", Color.magenta);
             return;
         }
 
@@ -1220,7 +1220,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         };
         PhotonNetwork.CurrentRoom.SetCustomProperties(table, null, NetworkUtils.forward);
         PhotonNetwork.CloseConnection(target);
-        LocalChatMessage($"Successfully banned {target.GetUniqueNickname()}", Color.magenta);
+        LocalChatMessage($"{target.GetUniqueNickname()} was banned", Color.magenta);
     }
 
     private void Unban(NameIdPair targetPair)
@@ -1235,14 +1235,14 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
             [Enums.NetRoomProperties.Bans] = pairs.ToArray(),
         };
         PhotonNetwork.CurrentRoom.SetCustomProperties(table, null, NetworkUtils.forward);
-        LocalChatMessage($"Successfully unbanned {targetPair.name}", Color.magenta);
+        LocalChatMessage($"{targetPair.name} was unbanned", Color.magenta);
     }
 
     private void RunCommand(string[] args)
     {
         if (!PhotonNetwork.IsMasterClient)
         {
-            LocalChatMessage("You cannot use room commands if you aren't the host!", Color.magenta);
+            LocalChatMessage("lol ur not host", Color.red);
             return;
         }
         string command = args.Length > 0 ? args[0].ToLower() : "";
