@@ -354,7 +354,6 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     {
         OpenLobbyMenu();
         ClearChat();
-        GlobalController.Instance.DiscordController.UpdateActivity();
     }
     public void OnJoinRandomFailed(short reasonId, string reasonMessage)
     {
@@ -554,7 +553,6 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
 
         rebindManager.Init();
 
-        GlobalController.Instance.DiscordController.UpdateActivity();
         EventSystem.current.SetSelectedGameObject(title);
 
 #if PLATFORM_WEBGL
@@ -676,8 +674,6 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         });
         if (updatePingCoroutine == null)
             updatePingCoroutine = StartCoroutine(UpdatePing());
-        GlobalController.Instance.DiscordController.UpdateActivity();
-
         Utils.GetCustomProperty(Enums.NetPlayerProperties.Spectator, out bool spectating, PhotonNetwork.LocalPlayer.CustomProperties);
         spectateToggle.isOn = spectating;
         chatTextField.SetTextWithoutNotify("");
