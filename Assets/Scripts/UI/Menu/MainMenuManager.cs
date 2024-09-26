@@ -18,7 +18,7 @@ using NSMB.Utils;
 public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks, IOnEventCallback, IConnectionCallbacks, IMatchmakingCallbacks
 {
 
-    public const int NICKNAME_MIN = 1, NICKNAME_MAX = 10;
+    public const int NICKNAME_MIN = 1, NICKNAME_MAX = 20;
 
     public static MainMenuManager Instance;
     public AudioSource sfx, music;
@@ -36,7 +36,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     public TMP_InputField nicknameField, starsText, coinsText, livesField, timeField, lobbyJoinField, chatTextField;
     public Slider musicSlider, sfxSlider, masterSlider, lobbyPlayersSlider, changePlayersSlider;
     public GameObject mainMenuSelected, optionsSelected, lobbySelected, currentLobbySelected, createLobbySelected, creditsSelected, controlsSelected, privateSelected, reconnectSelected, updateBoxSelected;
-    public GameObject errorBox, errorButton, rebindPrompt, reconnectBox;
+    public GameObject errorBox, errorFrame, errorButton, rebindPrompt, reconnectBox;
     public TMP_Text errorText, rebindCountdown, rebindText, reconnectText, updateText;
     public TMP_Dropdown region;
     public RebindManager rebindManager;
@@ -989,7 +989,7 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
     {
         string id = lobbyJoinField.text.ToUpper();
         int index = roomNameChars.IndexOf(id[0]);
-        if (id.Length < 8 || index >= allRegions.Count || id.Length > 1)
+        if (id.Length < 8 || index >= allRegions.Count || id.Length > 0)
         {
             OpenErrorBox("dude enter a REAL code");
             return;
