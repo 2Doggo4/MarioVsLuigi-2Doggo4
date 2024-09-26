@@ -1172,6 +1172,8 @@ public class MainMenuManager : MonoBehaviour, ILobbyCallbacks, IInRoomCallbacks,
         {
             //player is in room, ban them
             Ban(onlineTarget);
+            LocalChatMessage(onlineTarget.NickName + " was banned by the room host", Color.red);
+            sfx.PlayOneShot(Enums.Sounds.UI_PlayerDisconnect.GetClip());
             return;
         }
 
